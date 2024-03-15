@@ -12,25 +12,35 @@ body {
   color: red;
 }
 
-/* Styling and diplay adjusments for the oval */
+/* Styling and diplay adjusments for the title oval */
 #oval {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(170deg);
-  width: 50%; /* Adjust the width as needed */
-  padding-top: 20%; /* Maintain 1:2 aspect ratio */
+  width: 60%; 
+  padding-top: 15%; 
   background-color: yellow;
   border-radius: 50%;
-  z-index: -1; /* Ensure it's behind the cards */
+  z-index: -1; 
   box-shadow: 0px -4px 0px rgba(0, 0, 0, 1);
 }
 
-/* Cursor change for button hover */
-.btn:hover {
-  cursor: pointer;
+/* Styling and diplay adjusments for the gameboard oval */
+#oval2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(170deg);
+  width: 75%; 
+  padding-top: 25%;
+  background-color: yellow;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0px -4px 0px rgba(0, 0, 0, 1);
 }
 
+/* Display for title container */
 #start {
   display: flex;
   justify-content: center;
@@ -40,43 +50,56 @@ body {
   height: 90vh;
 }
 
+/* Cursor change for button hover */
+.btn:hover {
+  cursor: pointer;
+}
+
+/* Styling for start button */
 #start-button {
   z-index: 1;
-  margin-top: 20px;
+  /* margin-top: 100px; */
 }
 
-#best-score {
-  margin-bottom: 20px;
-}
-
+/* Styling for title div */
 #title {
   position: relative;
   width: 100%;
   height: 100%;
-  font-size: 4rem;
-  /*look into playing around or deleting */
-  perspective: 600px; 
+  font-size: 8rem;
+  margin-bottom: 0;
+  line-height: 0;
 }
 
-#title > p {
-  line-height: 0.75;
-  text-align: center;
-}
-
+/* Transition from title to gameboard */
 #start.playing {
-  margin-top: -90vh;
-  transition: margin-top 1s;
+  margin-top: -75vh;
+  transition: margin-top 1.5s;
 }
 
+/* Flex display for game */
 #start.playing + #game {
   display: flex;
 }
 
-/* Styling for the entire game. */
-.game-container {
+/* Groups the columns within each row. *************do need this one*/
+.row {
+  display: contents; 
+}
+
+/* Styling for each column within the grid. ***************dont think i need this one test some more*/
+.column {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Styling for the entire game. */
+#game {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 /* Creates a grid layout for organizing the cards into rows and columns */
@@ -87,36 +110,20 @@ body {
   gap: 20px; 
 }
 
-#game {
-  display: none;
-  position: relative;
-  width: 100%;
-  height: 100%;
-} 
-
-#game .row {
-  width: 100%;
-}
-
-.container {
-  flex-wrap: wrap;
-}
-
 /* Styling for the container of each card.  */
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 600px;
-  margin: 1rem auto;
+  margin: .5rem auto;
 }
 
-
+/* Change cursor on hover over game cards */
 .card-container:hover {
   cursor: pointer;
 }
 
-
+/* Card flip transformation */
 .card.flipped {
   transform: rotateY( 180deg );
 }
@@ -131,7 +138,7 @@ body {
   transition: transform .25s;
 }
 
-
+/* Style and positioning for card front and back */
 .card-face,
 .card-back {
   display: flex;
@@ -146,10 +153,7 @@ body {
   overflow: hidden;
 }
 
-.card-face {
-  overflow: hidden;
-}
-
+/* Styling for card face image */
 .card-face img {
   width: 100%;
   height: 100%;
@@ -157,66 +161,58 @@ body {
   object-position: center top;
 }
 
+/* Card flip transformation  ********************************************************************comment this out to work on end game */
 .card-back {
   transform: rotateY( 180deg );
 }
 
+/* Adjust image fit in card */
 .card-back > img {
   height: 100%;
   width: auto;
 }
 
+/* Current Score display */
 #current-score {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 6rem;
 }
 
+/* Hide end game display */
 #end {
   display: none;
 }
 
+/* End game styling and display */
 #end.game-over {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
   position: absolute;
+  text-align: center;
   background-color: rgba(0,0,0,0.75);
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  flex-direction: column;
-  align-items: center;
   color: white;
-  justify-content: space-around;
-  text-align: center;
 }
 
+/* Styling for end game h1 */
 #end h1 {
   font-size: 8rem;
 }
 
+/* Styling for end game h4 */
 #end h4 {
   font-size: 3rem;
 }
 
-/* Groups the columns within each row. */
-.row {
-  display: contents; 
-}
-
-/* Styling for each column within the grid. */
-.column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
 /* Resources utilized excessively */
 /* www.css-tricks.com  A complete Guide to CSS Grid by Chris House*/ 
-/* Photo by <a href="https://unsplash.com/@cestmoisheedy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sarah Sheedy</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-tiled-wall-with-blue-and-orange-designs-y9Tew9HVYdk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
 /* https://3dtransforms.desandro.com/card-flip */
 
 
