@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Memory Game!</title>
+    <link rel="stylesheet" href="MemoryGame.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <!-- Container for game title, start button, and best score -->
+    <div class="title-container" id="start">
+      <div>
+        <div>
+          <div id="oval"></div>
+          <div id="title">
+            <p>Memory Game</p>
+          </div>
+        </div>
+      </div>
+      <div class="best-score">
+        <div>
+          <h2>Best Score: <span id="best-score">&mdash;</span></h2>
+        </div>
+      </div>
+      <div class="start-button-container">
+        <button id="start-button">
+        <span id="start-text">Start!</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- container for game, cards, and score tracker -->
+    <div class="game-container" id="game">
+      <div class="grid-container"> 
+        <div class="row">
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+        <div class="column">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-face">
+                <img src="the-kramer.png" alt="Card Image">
+              </div>
+              <div class="card-back">
+                <img src="seinfeld-gifs/.gif" alt="Card Image">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-face">
+                <img src="the-kramer.png" alt="Card Image">
+              </div>
+              <div class="card-back">
+                <img src="seinfeld-gifs/.gif" alt="Card Image">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-face">
+                <img src="the-kramer.png" alt="Card Image">
+              </div>
+              <div class="card-back">
+                <img src="seinfeld-gifs/.gif" alt="Card Image">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-face">
+                <img src="the-kramer.png" alt="Card Image">
+              </div>
+              <div class="card-back">
+                <img src="seinfeld-gifs/.gif" alt="Card Image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Score tracker -->
+          <div class="column">
+            <div class="card-container">
+              <div id="current-score">  
+              </div>             
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+         <div class="column">  
+            <div class="card-container">
+              <div class="card">
+               <div class="card-face">
+                <img src="the-kramer.png" alt="Card Image">
+               </div>
+               <div class="card-back">
+                <img src="seinfeld-gifs/.gif" alt="Card Image">
+               </div>
+             </div>
+           </div>
+         </div>
+
+          <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+
+         <div class="column">  
+            <div class="card-container">
+              <div class="card">
+                <div class="card-face">
+                  <img src="the-kramer.png" alt="Card Image">
+                </div>
+                <div class="card-back">
+                  <img src="seinfeld-gifs/.gif" alt="Card Image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div id="oval2"></div>
+    </div>
+    
+    <!-- Container for Game over, final score, and play again button. -->
+    <div class="game-over-container" id="end">
+      <h2>Kudos on a job, done.</h2>
+      <h4></h4>
+      <a href="MemoryGame.html" id="restart-button">Well, you know, maybe you should try again?</a>
+    </div>
+    
+    <script src="MemoryGame.js"></script>
+  </body>
+</html>
