@@ -5,7 +5,12 @@
 }
 /* Styling for the body */
 body {
-  background-color: rgb(52, 48, 255);
+  background-image:
+  linear-gradient(45deg, rgb(136, 129, 129) 25%, transparent 25%),
+  linear-gradient(-45deg, rgb(136, 129, 129) 25%, transparent 25%),
+  linear-gradient(45deg, transparent 75%, rgb(136, 129, 129) 75%),
+  linear-gradient(-45deg, transparent 75%, rgb(136, 129, 129) 75%);
+  background-size: 25px 25px;
   font-family: GiambattistaDueMille, "Noto Serif Display", serif;
   font-weight: 750;
   text-shadow: 2px 1px 0px black;
@@ -26,20 +31,6 @@ body {
   box-shadow: 0px -4px 0px rgba(0, 0, 0, 1);
 }
 
-/* Styling and diplay adjusments for the gameboard oval */
-#oval2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(170deg);
-  width: 75%; 
-  padding-top: 25%;
-  background-color: yellow;
-  border-radius: 50%;
-  z-index: -1;
-  box-shadow: 0px -4px 0px rgba(0, 0, 0, 1);
-}
-
 /* Display for title container */
 #start {
   display: flex;
@@ -50,25 +41,64 @@ body {
   height: 90vh;
 }
 
-/* Cursor change for button hover */
-.btn:hover {
+/* Display for start button container */
+.start-button-container {
+  position: relative;
+}
+
+/* Styling for start button */
+#start-button {
+  margin-left: 750px;
+  background-color: yellow;
+  color: red;
+  border-radius: 50%;
+  height: 50px;
+  width: 125px;
+  text-shadow: 1px 1px 0px black;
+  font-family: GiambattistaDueMille, "Noto Serif Display", serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  transform:rotate(350deg);
+  position: relative;
+  z-index: -1;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
+}
+
+/* Styling for start button text */
+#start-text {
+  font-size: 3rem;
+  position: absolute;
+  transform: translate(-52%, -52%) rotate(10deg);
+}
+
+/* Cursor change for start button hover */
+#start-button:hover {
   cursor: pointer;
+  background-image: url('static.png');
+  background-size: 20px 20px;
+  color: purple;
+  text-shadow: 1px 2px 0px rgb(238, 181, 38);
+  
 }
 
 /* Styling for start button */
 #start-button {
   z-index: 1;
-  /* margin-top: 100px; */
 }
 
 /* Styling for title div */
 #title {
   position: relative;
-  width: 100%;
-  height: 100%;
   font-size: 8rem;
-  margin-bottom: 0;
+  margin-top: 200px;
+  margin-left: 100px;
   line-height: 0;
+}
+
+/* Styling for best score */
+.best-score {
+  font-size: 2rem;
+  margin-left: -600px;
 }
 
 /* Transition from title to gameboard */
@@ -80,18 +110,14 @@ body {
 /* Flex display for game */
 #start.playing + #game {
   display: flex;
+  background-color: blue;
+  width: 50%;
+  margin-left: 25%;
 }
 
-/* Groups the columns within each row. *************do need this one*/
+/* Groups the columns within each row. */
 .row {
   display: contents; 
-}
-
-/* Styling for each column within the grid. ***************dont think i need this one test some more*/
-.column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Styling for the entire game. */
@@ -108,6 +134,21 @@ body {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 20px; 
+  z-index: 2;
+}
+
+/* Styling and diplay adjusments for the gameboard oval */
+#oval2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(170deg);
+  width: 75%; 
+  padding-top: 25%;
+  background-color: yellow;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0px -4px 0px rgba(0, 0, 0, 1);
 }
 
 /* Styling for the container of each card.  */
@@ -121,11 +162,6 @@ body {
 /* Change cursor on hover over game cards */
 .card-container:hover {
   cursor: pointer;
-}
-
-/* Card flip transformation */
-.card.flipped {
-  transform: rotateY( 180deg );
 }
 
 /* Styling for each individual card.  */
@@ -149,7 +185,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  border: 2px solid black;
+  border: 3px solid black;
   overflow: hidden;
 }
 
@@ -161,13 +197,18 @@ body {
   object-position: center top;
 }
 
-/* Card flip transformation  ********************************************************************comment this out to work on end game */
+/* Card flip transformation */
+.card.flipped {
+  transform: rotateY( 180deg );
+}
+
+/* Card flip transformation */
 .card-back {
   transform: rotateY( 180deg );
 }
 
 /* Adjust image fit in card */
-.card-back > img {
+.card-back img {
   height: 100%;
   width: auto;
 }
@@ -178,6 +219,16 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 6rem;
+}
+
+/* Styling for flipped card */
+.flipped .card-back {
+  border: 3px solid red;
+}
+
+/* Styling for matched card */
+.matched .card-back{
+  border: 4px solid rgb(45, 214, 45);
 }
 
 /* Hide end game display */
@@ -193,27 +244,58 @@ body {
   flex-direction: column;
   position: absolute;
   text-align: center;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.9);
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  color: white;
+  z-index: 2;
 }
 
 /* Styling for end game h1 */
-#end h1 {
-  font-size: 8rem;
+#end h2 {
+  font-size: 5rem;
+  color: red;
+  text-shadow: 1px 1px 1px yellow;
+}
+
+/* Styleing for end game gif */
+.end-gif {
+  border-radius: 25px;
+  width: 500px;
+  height: 500px;
+  z-index: 2;
+  border: 5px solid yellow;
 }
 
 /* Styling for end game h4 */
 #end h4 {
   font-size: 3rem;
+  z-index: 2;
+  color: red;
+  text-shadow: 1px 1px 1px yellow;
 }
 
-/* Resources utilized excessively */
+/* Styling for restart button */
+#restart-button {
+  font-size: 2rem;
+  text-decoration: none;
+  color: red;
+  text-shadow: .5px .5px 0 yellow;
+  z-index: 2;
+}
+
+/* Styling for mouse hover over restart button */
+#restart-button:hover {
+  color: yellow;
+  text-shadow: 2px 2px 2px red;
+}
+
+/* Resources utilized */
 /* www.css-tricks.com  A complete Guide to CSS Grid by Chris House*/ 
 /* https://3dtransforms.desandro.com/card-flip */
+/* https://stackoverflow.com/questions/35361986/css-gradient-checkerboard-pattern */
+/* Photo by <a href="https://unsplash.com/@elijah_sargent?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Elijah Sargent</a> on <a href="https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-white-screen-R2lmjzVznyI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> */
+/* Gifs from https://giphy.com/explore/seinfeld */
 
-
-
+  
