@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     score.innerText = 'Total moves: ' + currentScore;
     let lowScore = +localStorage.getItem('low-score') || Infinity;
     if (currentScore < lowScore) {
-      score.innerText += " -You're like the Phoenix, rising from Arizona. NEW BEST SCORE!!!";
+      score.innerText += "\nNEW BEST SCORE!!!\nYou're like the Phoenix, rising from Arizona.";
       localStorage.setItem('low-score', currentScore);
       document.getElementById('best-score').innerText = currentScore;
     };
